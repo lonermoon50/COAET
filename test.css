@@ -1,0 +1,129 @@
+body {
+    height: 2753px;
+    width: 1680px;
+    margin: 0;
+    padding: 0;
+    background-color:#232830;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.page_header {
+    height: 515px;
+    width: 1236px;
+    border: 5px #40396E solid;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dev {
+    height: 45px;
+    width: 179px;
+    display: flex;
+    /* align-items: center; */
+    
+}
+
+.wdev {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 400;
+    font-family: Poppins;
+    text-decoration-line: none;
+}
+.caa {
+    height: 36px;
+    width: 265px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+.cdev {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 400;
+    font-family: Poppins;
+    text-decoration-line: none;
+}
+
+.group_1 {
+    height: 391px;
+    width: 844px;
+    border: 5px #40396E solid;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-self:flex-end;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 204.08px;
+    width: 194.45px;
+    background-image: url(Logo.png);
+    align-self: center;
+}
+.wfd {
+    height: 85px;
+    width: 844px;
+    font-family: recusrive;
+    font-style: italic;
+    font-size: 71px;
+    font-weight: 400;
+    color: #FF7575;
+    align-self: center;
+}
+
+.coa {
+    height: 44px;
+    width: 711px;
+    font-family: poppins;
+    font-weight: 400;
+    font-size: 29px;
+    color: #ffffff;
+    align-self: center;
+}
+
+.catlist {
+    width: 1680px;
+    height: 65px;
+    border: 3px #4d4d4d solid;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.catlist-item {
+    height: 32px;
+    font-family: recursive;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 27px;
+    color: #909090;
+}
+
+.catlist-icon {
+    height: 24px;
+    width: 55px;
+}
+
+.article-list {
+    width: 1244px;
+    height: 1391px;
+    border: 1px #252930 solid;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-self: center;
+}
+
+.articles {
+    height: 439px;
+    width: 390px;
+    border: 1px #252930 solid;
+    border-radius: 20px;
+    background-color: #ffffff;
+}
