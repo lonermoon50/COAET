@@ -22,20 +22,20 @@ body {
 
 .uni-logo {
   display: inline-block;
-  height: 6.25rem; /* 100px */
-  width: 6.25rem;
+  height: 5.25rem; /* 100px */
+  width: 5.25rem;
 }
 
 h1 {
   display: inline-block;
   font-weight: 800;
-  font-size: 3.125rem; /* 50px */
+  font-size: 2.125rem; /* 50px */
   font-family: monospace;
   text-transform: uppercase;
 }
 
 #navbar {
-  height: 4.6875rem; /* 75px */
+  height: 3.6875rem; /* 75px */
   width: 100%;
   background-color: #3a7d44;
   border-radius: 0.125rem;
@@ -64,7 +64,7 @@ input {
 }
 
 #searchbar {
-  height: 2.875rem; /* 46px */
+  height: 1.875rem; /* 46px */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,7 +74,7 @@ input {
 
 .nav-item {
   text-decoration: none;
-  font-size: 2.1875rem; /* 35px */
+  font-size: 1.5rem; /* 35px */
   color: white;
   background-color: #3a7d44;
 }
@@ -92,13 +92,13 @@ input {
 }
 
 h2 {
-  font-size: 2.1875rem; /* 35px */
+  font-size: 1.8rem; /* 35px */
   font-weight: 600;
   margin-left: 1.875rem; /* 30px */
 }
 
 #welcome {
-  font-size: 1.6875rem; /* 27px */
+  font-size: 1.5rem; /* 27px */
 }
 
 #media {
@@ -112,8 +112,8 @@ h2 {
 }
 
 .photos {
-  height: 37.5rem; /* 600px */
-  width: 37.5rem;
+  height: 30.5rem; /* 600px */
+  width: 30.5rem;
   flex-shrink: 0;
   border: 0.3125rem #3a7d44 solid; /* 5px */
   border-radius: 0.625rem;
@@ -145,15 +145,15 @@ h2 {
 }
 
 ul, p {
-  font-size: 1.6875rem; /* 27px */
-  margin-left: 1.875rem; /* 30px */
+  font-size: 1.5rem; /* 27px */
+  margin-left: 1rem; /* 30px */
 }
 
 marquee {
-  height: 3.125rem; /* 50px */
+  height: 2.125rem; /* 50px */
   background-color: #3a7d44;
   color: #E1EEBC;
-  font-size: 2.5rem; /* 40px */
+  font-size: 1.5rem; /* 40px */
   align-content: center;
 }
 
@@ -170,7 +170,7 @@ marquee {
 
 #logo {
   position: relative;
-  width: 90vw;
+  width: 50vw;
   max-width: 50rem; /* 800px */
   aspect-ratio: 1 / 1;
   background: url(COAE&T_withoutbg.png) center no-repeat;
@@ -225,18 +225,18 @@ marquee {
 }
 
 #blockquote {
-  font-size: 1.75rem; /* 28px */
+  font-size: 1.5rem; /* 28px */
   text-transform: capitalize;
   position: relative;
   bottom: 0;
 }
 
 #footer {
-  height: 6.25rem; /* 100px */
+  height: 5.25rem; /* 100px */
   width: 100%;
   background-color: #3a7d44;
   color: #ede6db;
-  font-size: 1.6875rem; /* 27px */
+  font-size: 1.5rem; /* 27px */
   display: flex;
   justify-content: center;
   align-items: center;
