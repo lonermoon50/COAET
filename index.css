@@ -55,7 +55,7 @@ input {
 }
 
 #nav-button {
-  background-color: #3a7d44;
+  background-color:#6b4f3b;
   height: 100%;
   width: 1.6875rem; /* 27px */
   font-size: 1.375rem; /* 22px */
@@ -93,8 +93,10 @@ input {
 
 h2 {
   font-size: 1.8rem; /* 35px */
-  font-weight: 600;
-  margin-left: 1.875rem; /* 30px */
+  font-weight: 1000;
+  margin-left: 1rem; /* 30px */
+  margin-top: 1.2rem;
+
 }
 
 #welcome {
@@ -112,32 +114,36 @@ h2 {
 }
 
 .photos {
-  height: 30.5rem; /* 600px */
-  width: 30.5rem;
+  height: 23.5rem; /* 600px */
+  width: 23.5rem;
   flex-shrink: 0;
   border: 0.3125rem #3a7d44 solid; /* 5px */
   border-radius: 0.625rem;
   display: flex;
   align-items:start;
   justify-content: center;
-  font-size: 1.875rem; /* 30px */
+  font-size: 1.1rem; /* 30px */
 }
 #photo-3 {
- 
   background:url(kailash-hostel.webp) center no-repeat;
+  background-size: contain;
 }
 
 #photo-2 {
   background:url(COAE&T.jpg) center no-repeat;
+  background-size: contain;
 }
 #photo-1 {
   background:url(College-gate.png) center no-repeat;
+  background-size: contain;
 }
 #photo-4 {
   background:url(agribackground.jpg) center no-repeat;
+  background-size: contain;
 }
 #photo-5 {
   background:url(agribackground2.jpg) center no-repeat;
+  background-size: contain;
 }
 
 #media::-webkit-scrollbar {
@@ -170,7 +176,7 @@ marquee {
 
 #logo {
   position: relative;
-  width: 50vw;
+  width: 40vw;
   max-width: 50rem; /* 800px */
   aspect-ratio: 1 / 1;
   background: url(COAE&T_withoutbg.png) center no-repeat;
@@ -192,36 +198,36 @@ marquee {
 #fmpe {
   height: 31.2%;
   width: 30.6%;
-  top: 15%;
-  left: 17%;
+  top: 16.5%;
+  left: 17.2%;
 }
 
 #swe {
   height: 31%;
   width: 30.6%;
-  top: 15%;
-  left: 20.4%;
+  top: 16.2%;
+  left: 18.4%;
 }
 
 #basic {
   height: 30%;
   width: 38%;
-  top: 18%;
+  top: 17.3%;
   left: 31%;
 }
 
 #rbee {
   height: 35%;
   width: 30%;
-  top: 10%;
-  right: 24%;
+  top: 9%;
+  right: 25.8%;
 }
 
 #pfe {
   height: 36%;
   width: 29%;
-  top: 10%;
-  right: 14%;
+  top: -27.2%;
+  left:55.5%;
 }
 
 #blockquote {
@@ -264,20 +270,20 @@ body {
 
 #header {
   display: flex;
-  justify-content: center;
+  justify-content:space-around;
   align-items: center;
 }
 
 .uni-logo {
   display: inline-block;
-  height: 4.25rem; /* 100px */
-  width: 4.25rem;
+  height: 3.25rem; /* 100px */
+  width: 3.25rem;
 }
 
 h1 {
   display: inline-block;
-  font-weight: 900;
-  font-size: 1.3rem; /* 50px */
+  font-weight: 950;
+  font-size: 0.9rem; /* 50px */
   font-family: monospace;
   text-transform: uppercase;
 }
@@ -303,7 +309,7 @@ input {
 }
 
 #nav-button {
-  background-color: #3a7d44;
+  background: color #6b4f3b;;
   height: 100%;
   width: 1.6875rem; /* 27px */
   font-size: 1.375rem; /* 22px */
@@ -340,13 +346,15 @@ input {
 }
 
 h2 {
-  font-size: 1.75rem; /* 35px */
-  font-weight: 600;
-  margin-left: 1.875rem; /* 30px */
+  font-size: 1.2rem; /* 35px */
+  text-decoration:wavy;
+  font-weight: 1000;
+  margin-left: 1rem; /* 30px */
+  margin-top: 1rem;
 }
 
 #welcome {
-  font-size: 1.4rem; /* 27px */
+  font-size: 1.1rem; /* 27px */
 }
 
 #media {
@@ -376,15 +384,14 @@ h2 {
 }
 
 ul, p {
-  font-size: 1.4rem; /* 27px */
-  margin-left: 1.875rem; /* 30px */
+  font-size: 1.1rem; /* 27px */
+  /* margin-left: 1rem; */
 }
-
 marquee {
   height: 2.5rem; /* 50px */
   background-color: #3a7d44;
   color: #E1EEBC;
-  font-size: 1.4rem; /* 40px */
+  font-size: 1.1rem; /* 40px */
   align-content: center;
 }
 
@@ -423,40 +430,40 @@ marquee {
 #fmpe {
   height: 31.2%;
   width: 30.6%;
-  top: 15%;
-  left: 17%;
+  top: 16%;
+  left: 18%;
 }
 
 #swe {
   height: 31%;
   width: 30.6%;
-  top: 15%;
-  left: 20.4%;
+  top: 16%;
+  left: 17.4%;
 }
 
 #basic {
   height: 30%;
   width: 38%;
-  top: 18%;
+  top: 17%;
   left: 31%;
 }
 
 #rbee {
   height: 35%;
   width: 30%;
-  top: 10%;
-  right: 24%;
+  top: 9%;
+  right: 26%;
 }
 
 #pfe {
   height: 36%;
   width: 29%;
-  top: 10%;
-  right: 14%;
+  top: -28%;
+  left:55%;
 }
 
 #blockquote {
-  font-size: 1.4rem; /* 28px */
+  font-size: 1.1rem; /* 28px */
   text-transform: capitalize;
   position: relative;
   bottom: 0;
@@ -467,7 +474,7 @@ marquee {
   width: 100%;
   background-color: #3a7d44;
   color: #ede6db;
-  font-size: 1.4rem; /* 27px */
+  font-size: 1.1rem; /* 27px */
   display: flex;
   justify-content: center;
   align-items: center;
