@@ -85,86 +85,6 @@ input {
   border: 0.125rem #E1EEBC solid;
   border-radius: 0.5rem;
 }
-
-#content {
-  height: fit-content;
-  width: 100%;
-}
-
-h2 {
-  font-size: 1.8rem; /* 35px */
-  font-weight: 1000;
-  margin-left: 1.6rem; /* 30px */
-  margin-top: 1.2rem;
-
-}
-
-#welcome {
-  font-size: 1rem;
-}
-
-#media {
-  display: flex;
-  overflow-x: auto;
-  gap: 3.125rem; /* 50px */
-  padding: 1.25rem; /* 20px */
-  scroll-behavior: smooth;
-  max-width: 100%;
-  white-space: nowrap;
-}
-
-.photos {
-  height: 23.5rem; /* 600px */
-  width: 23.5rem;
-  flex-shrink: 0;
-  border: 0.3125rem #3a7d44 solid; /* 5px */
-  border-radius: 0.625rem;
-  display: flex;
-  align-items:start;
-  justify-content: center;
-  font-size: 1.1rem; /* 30px */
-}
-#photo-3 {
-  background:url(kailash-hostel.webp) center no-repeat;
-  background-size: contain;
-}
-
-#photo-2 {
-  background:url(COAE&T.jpg) center no-repeat;
-  background-size: contain;
-}
-#photo-1 {
-  background:url(College-gate.png) center no-repeat;
-  background-size: contain;
-}
-#photo-4 {
-  background:url(agribackground.jpg) center no-repeat;
-  background-size: contain;
-}
-#photo-5 {
-  background:url(agribackground2.jpg) center no-repeat;
-  background-size: contain;
-}
-
-#media::-webkit-scrollbar {
-  display: none;
-}
-
-ul, p {
-  font-size: 1rem; /* 27px */
-  margin-left: 1.6rem; /* 30px */
-}
-
-marquee {
-  height: 2.4rem; /* 50px */
-  background-color: #3a7d44;
-  color: #E1EEBC;
-  font-size: 1rem; /* 40px */
-  align-content: center;
-}
-
-/* Departments Section */
-
 #departments-container {
   display: flex;
   flex-direction: column;
@@ -230,16 +150,10 @@ marquee {
   left:55.5%;
 }
 
-#blockquote {
-  font-size: 1rem; /* 28px */
-  text-transform: capitalize;
-  position: relative;
-  bottom: 0;
-}
-
 #footer {
   height: 4.8rem; /* 100px */
   width: 100%;
+  margin-top: 1.6rem;
   background-color: #3a7d44;
   color: #ede6db;
   font-size: 1rem; /* 27px */
@@ -249,7 +163,6 @@ marquee {
   position: relative;
   bottom: 0;
 }
-
 @media (width<768px) {
   
 * {
@@ -335,61 +248,11 @@ input {
   border-radius: 0.5rem;
 }
 
-#content {
-  height: fit-content;
-  width: 100%;
-}
 
-h2 {
-  font-size: 1.2rem; /* 35px */
-  text-decoration:wavy;
-  font-weight: 1000;
-  margin-left: 1rem; /* 30px */
-  margin-top: 1rem;
-}
-
-#welcome {
-  font-size: 1.1rem; /* 27px */
-}
-
-#media {
-  display: flex;
-  overflow-x: auto;
-  gap: 3.125rem; /* 50px */
-  padding: 1.25rem; /* 20px */
-  scroll-behavior: smooth;
-  max-width: 100%;
-  white-space: nowrap;
-}
-
-.photos {
-  height: 20.5rem; /* 600px */
-  width: 20.5rem;
-  flex-shrink: 0;
-  border: 0.3125rem #3a7d44 solid; /* 5px */
-  border-radius: 0.625rem;
-  display: flex;
-  align-items: start;
-  justify-content: center;
-  font-size: 1rem; /* 30px */
-}
 
 #media::-webkit-scrollbar {
   display: none;
 }
-
-ul, p {
-  font-size: 1.1rem; /* 27px */
-  /* margin-left: 1rem; */
-}
-marquee {
-  height: 2.5rem; /* 50px */
-  background-color: #3a7d44;
-  color: #E1EEBC;
-  font-size: 1.1rem; /* 40px */
-  align-content: center;
-}
-
 /* Departments Section */
 
 #departments-container {
@@ -457,12 +320,6 @@ marquee {
   left:55%;
 }
 
-#blockquote {
-  font-size: 1.1rem; /* 28px */
-  text-transform: capitalize;
-  position: relative;
-  bottom: 0;
-}
 
 #footer {
   height: 6.25rem; /* 100px */
