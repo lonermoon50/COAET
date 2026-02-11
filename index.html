@@ -3,101 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="COAE&T_withoutbg.png" image/png">
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>COAE&T Students corner</title>
+    <link rel="icon" href="COAE&T_withoutbg.png" image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <title>Login COAE&T Students Corner</title>
 </head>
 <body>
-    <div id="header">
-    <a href="https://hau.ac.in/"><img src="ccshau-removebg-preview.png" class="uni-logo"></a>
-    <h1>Welcome Future Agrineers</h1>
-    <a href="index.html"><img src="COAE&T_withoutbg.png" class="uni-logo"></a>
+    <h1 id="login-heading">Login to COAE&T Students Corner</h1>
+    <div class="container">
+        <!-- <button id="close" onclick="redirect()">X</button> -->
+        <h3>Student Login</h3>
+        <input type="text" id="username" placeholder="Enter your Roll number">
+        <input type="password" id="password" placeholder="Enter password">
+        <input type="submit" value="Login" id="login">
+        <p id="message"></p>
+        <a href="registration.html">Or Register as new student</a>
     </div>
-    <div id="navbar">
-  <a href="index.html" class="nav-item">home</a>
-<select class="nav-item" id="classes" onchange="location = this.value;">
-  <option value="index.html">--SELECT CLASS--</option>
-  <option value="1styear.html">1st Year</option>
-  <option value="2ndyear.html">2nd Year</option>
-  <option value="3rdyear.html">3rd Year</option>
-  <option value="finalyear.html">Final Year</option>
-</select>
-
-        <!-- <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a> -->
-        <a href="#departments" class="nav-item">departments</a>
-        <a href="scolarships.html" class="nav-item">scholarships</a>
-        <a href="gallery.html" class="nav-item">gallery</a>
-        <a href="faqs.html" class="nav-item">FAQs</a>
-        <div id="searchbar">
-            <input type="text" name="searchbar" placeholder="Search here ...."><button id="nav-button"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
-    </div></div>
-    <h2 align="center">Welcome to COAE&T Student's Corner</h2>
-<div id="welcome" align="center">
-This is your one-stop platform for academic resources, student support, and everything related to your journey as an Agricultural Engineer at CCS HAU. Whether you're in your first year or final, you'll find notes, important announcements, scholarship info, and college memories right here.
-</div><br><br><br>
-<label>Announcements</label>
-<marquee scrollamount="15">
-   &#9935; new session starting from 3rd of august    &#9935; HSTES choice filling starting from 7th july    &#9935; physical councelling will start in september</li>
-</marquee><br><br><br>
-<div id="content">
-<div id="media">
-<div class="photos" id="photo-1"><b>Side look of College</b></div>
-<div class="photos" id="photo-2"><b>Front look of college</b></div>
-<div class="photos" id="photo-3"><b>kailash hostel nO.1</b></div>
-<div class="photos" id="photo-4"><b>illustration on agri-technology</b></div>
-<div class="photos" id="photo-5"><b>illustration on agri-technology</b></div>
-</div>
-
-
-
-
-
-<div id="list">
-
-<!-- <h2>🔔 Announcements</h2>
-<ul>
-  <li>new session starting from 3rd of august</li>
-  <li>HSTES choice filling starting from 7th july</li>
-  <li>physical councelling will start in august</li>
-</ul><br><br> -->
-<h2>Our Mission</h2>
-<p>
-We believe in student-to-student support. This website is designed to ease the academic stress by providing structured resources, useful links, and keeping you connected with your college community. No more struggling to find PDFs or wondering about your syllabus!
-</p><br><br>
-   </div></div>
-<!-- <div id="departments-in-logo">
-<div id="logo">
-    <a href="1styear.html"><img src="FMPE(153-156).png" class="section" id="fmpe"></a>
-    <img src="SWE(153-155).png" class="section" id="swe">
-    <img src="BASIC(190-150).png" class="section" id="basic">
-    <img src="RBEE(150-175).png" class="section" id="rbee">
-    <img src="PFE(145-180).png" class="section" id="pfe">
-</div> </div>-->
-<section id="departments">
-<div id="departments-container">
-  <h1 align="center">DEPARTMENTS</h1><br>
-  <p>Click on department logo you want to see</p>
-  <div id="logo">
-    <a href="FMPE.html"><img src="FMPE(153-156).png" class="section" id="fmpe" alt="FMPE Department"></a>
-    <a href="SWE.html"><img src="SWE(153-155).png" class="section" id="swe" alt="SWE Department"></a>
-    <a href="basic.html"><img src="BASIC(190-150).png" class="section" id="basic" alt="Basic Engineering"></a>
-    <a href="RBEE.html"><img src="RBEE(150-175).png" class="section" id="rbee" alt="RBEE Department"></a>
-    <a href="PFE.html"><img src="PFE(145-180).png" class="section" id="pfe" alt="PFE Department"></a>
-  </div>
-</div>
-</section>
-   <div id="blockquote" align="center">
-"Farming looks mighty easy when your plow is a pencil and you're a thousand miles from the cornfield."  
-<br>— Dwight D. Eisenhower
-</div>
-<section id="footer">
-    <div id="footer" align="center">
-            Made with &hearts;<br>
-            by Pankaj Giri &#169;<br>
-            Email us coaetstudentcorner@gmail.com
-    </div>
-</section>
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="index.js"></script>
+    
 </body>
 </html>

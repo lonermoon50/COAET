@@ -1,0 +1,78 @@
+.body-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.feedback-container {
+    color: #1e5631;
+    height: 600px;
+    width: 90%;
+    border: 2px solid #3a7d44;
+    border-radius: 10px;
+    box-shadow: 0 0 1rem rgba(58, 125, 68, 1);
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.input {
+    width: 90%; 
+    display: flex; 
+    flex-direction: column;
+    
+}
+
+.radio_input {
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+    /* transform: scale(2); */
+}
+.text-input, #select {
+    width: 100%;
+    font-size: 15px;
+    height: 35px;
+    border: 1px solid #3a7d44;
+    border-radius: 7px;
+    text-align: center;
+}
+textarea {
+    width: 100%;
+    font-size: 15px;
+    border: 1px solid #3a7d44;
+    border-radius: 7px;
+    text-align: center;
+}
+
+input:focus, #select:focus {
+    outline: none;
+    border-color: #1e5631;
+    box-shadow: 0 0 5px rgba(58, 125, 68, 0.5);
+}
+
+
+#submitbtn {
+    color: #E1EEBC;
+    background-color: #3a7d44;
+    height: 35px;
+    width: 90%;
+    border: none;
+    border-radius: 7px;
+}
+
+#submitbtn:hover {
+      box-shadow: 0 0 0.5rem rgba(58, 125, 68, 0.829);
+      cursor: pointer;
+}
+
+#thanksMessage {
+    display: none;
+    color: #3a7d44;
+    font-weight: 800;
+    font-size: 17px;
+}

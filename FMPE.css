@@ -10,9 +10,8 @@ html {
 
 body {
   color: #0f1111;
-  font-family: monospace;
+  font-family: 'poppins';
   background-color: #E1EEBC;
-  text-transform: capitalize;
 }
 
 /* .heading {
@@ -29,10 +28,11 @@ body {
 }
 
 h1 {
+  padding: 10px;
   display: inline-block;
   font-weight: 1000;
-  font-size: 2.125rem; /* 50px */
-  font-family: monospace;
+  font-size: 1.4rem; /* 50px */
+  font-family: 'poppins';
   text-transform: uppercase;
   align-items: center;
 }
@@ -77,14 +77,14 @@ input {
 
 .nav-item {
   text-decoration: none;
-  font-family: monospace;
-  font-size: 1rem; /* 35px */
+  font-family: 'poppins';
+  font-size: 01rem; /* 35px */
   color: white;
   background-color: #3a7d44;
 }
 
 /* #classes {
-    font-family: monospace;
+    font-family: 'poppins';
 } */
 
 #searchbar {
@@ -112,15 +112,48 @@ input {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    border-radius: 0.5rem;
 
 }
-.hod_photo {
+.hod_photo_fmpe {
     height: 90%;
-    width: 14.562rem;
+    width: 14.2rem;
     background:url(FMPE_hod_2.png) no-repeat center;
     background-size: contain;
     border-radius: 0.9rem;
 }
+
+.hod_photo_pfe {
+    height: 90%;
+    width: 14.2rem;
+    background:url(basic.swe.pfe.rbee_hod.png) no-repeat center;
+    background-size: contain;
+    border-radius: 0.9rem;
+}
+
+.hod_photo_rbee {
+    height: 90%;
+    width: 14.2rem;
+    background:url(basic.swe.pfe.rbee_hod.png) no-repeat center;
+    background-size: contain;
+    border-radius: 0.9rem;
+}
+
+.hod_photo_swe {
+    height: 90%;
+    width: 14.2rem;
+    background:url(basic.swe.pfe.rbee_hod.png) no-repeat center;
+    background-size: contain;
+    border-radius: 0.9rem;
+}
+.hod_photo_basic {
+    height: 90%;
+    width: 14.2rem;
+    background:url(basic.swe.pfe.rbee_hod.png) no-repeat center;
+    background-size: contain;
+    border-radius: 0.9rem;
+}
+
 
 .hod_details {
     height: 90%;
@@ -183,7 +216,7 @@ html {
 
 body {
   color: #0f1111;
-  font-family: monospace;
+  font-family: 'poppins';
   background-color: #E1EEBC;
   text-transform: capitalize;
 }
@@ -204,7 +237,7 @@ h1 {
   display: inline-block;
   font-weight: 950;
   font-size: 1rem; /* 50px */
-  font-family: monospace;
+  font-family: 'poppins';
   text-transform: uppercase;
 }
 
@@ -248,7 +281,7 @@ input {
 
 .nav-item {
   text-decoration: none;
-  font-size: 1.4rem; /* 35px */
+  font-size: 1.2rem; /* 35px */
   color: white;
   background-color: #3a7d44;
 }
@@ -269,9 +302,10 @@ input {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    border-radius: 0.5rem;
 
 }
-.hod_photo {
+.hod_photo_fmpe {
     height: 90%;
     width: 7.2rem;
     background:url(FMPE_hod_2.png) no-repeat center;
@@ -279,12 +313,44 @@ input {
     border-radius: 0.9rem;
 }
 
+.hod_photo_pfe {
+    height: 90%;
+    width: 7.2rem;
+    background:url(basic.swe.pfe.rbee_hod.png) no-repeat center;
+    background-size: contain;
+    border-radius: 0.9rem;
+}
+
+.hod_photo_rbee {
+    height: 90%;
+    width: 7.2rem;
+    background:url(basic.swe.pfe.rbee_hod.png) no-repeat center;
+    background-size: contain;
+    border-radius: 0.9rem;
+}
+
+.hod_photo_swe {
+    height: 90%;
+    width: 7.2rem;
+    background:url(basic.swe.pfe.rbee_hod.png) no-repeat center;
+    background-size: contain;
+    border-radius: 0.9rem;
+}
+.hod_photo_basic {
+    height: 90%;
+    width: 7.2rem;
+    background:url(basic.swe.pfe.rbee_ho.png) no-repeat center;
+    background-size: contain;
+    border-radius: 0.9rem;
+}
+
+
 .hod_details {
     height: 90%;
     width: 60%;
     background-color: #E1EEBC;
     border-radius: 0.9rem;
-    padding-left: 0.3rem;
+    padding-left: 0.001rem;
     display: flex;
     flex-direction: column;
     align-items: baseline;
@@ -295,7 +361,9 @@ a {
     color: #6b4f3b;
     font-size:smaller;
 }
-
+#aboutDepartment {
+  align-self: center;
+}
 p {
     font-size:1rem;
 }
@@ -334,22 +402,22 @@ p {
 }
 
 ul, p {
-  font-size: 1rem; /* 27px */
-  /* margin-left: 1rem; */
+  font-size: 0.8rem; /* 27px */
+  margin-left: 0.5rem;
 }
 
 
 #hod_name {
-    font-size:1rem;
-}
-#hod_desigination {
     font-size:0.6rem;
 }
+#hod_desigination {
+    font-size:0.4rem;
+}
 #hod_mail {
-    font-size:0.8rem;
+    font-size:0.4rem;
 }
 .hod_para {
-    font-size:0.5rem;
+    font-size:0.39rem;
 }
 .section {
   position: relative;

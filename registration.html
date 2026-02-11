@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="registration.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student registration COAE&T</title>
+</head>
+<body>
+    <h1 id="registration-heading">Register as new Student to COA&T Students Corner</h1>
+    <form class="container" id="regform">
+    <h2>Student Registration</h2>
+    <div class="input">
+        <label>First Name:</label>
+        <input type="text" placeholder="Enter First Name" name="firstName" required>
+    </div>
+    <div class="input">
+        <label>Last Name:</label>
+        <input type="text" placeholder="Enter Last Name" name="lastName">
+    </div>
+    <div class="input">
+        <label>Gender:</label>
+        <select name="Gender" required>
+            <option value="">-Select Gender-</option>
+            <option>Male</option>
+            <option>Female</option>
+        </select>
+    </div>
+    <div class="input">
+        <label>Class:</label>
+        <select name="classYear" required>
+            <option value="">-Select Class-</option>
+            <option>1st Year</option>
+            <option>2nd Year</option>
+            <option>3rd Year</option>
+            <option>Final Year</option>
+        </select>
+    </div>
+    <div class="input">
+        <label>Semester:</label>
+        <select name="semester" required>
+            <option value="">-Select Semester-</option>
+            <option>1st</option>
+            <option>2nd</option>
+        </select>
+    </div>
+    <div class="input">
+        <label>Roll No. :</label>
+        <input type="text" placeholder="Enter Roll Number" name="rollNo" required />
+    </div>
+    <div class="input">
+         <label>Enter Email:</label>
+         <input type="email" placeholder="Enter Email" name="email">
+    </div>
+    <div class="input">
+        <label>Enter new password</label>
+        <input type="password" id="password" placeholder="Enter password" name="password" required />
+        <small class="error" id="passError"></small>
+    </div>
+    <div class="input">
+        <label>Confirm password</label>
+    <input  type="password" id="confirmpassword" placeholder="Confirm password" required>
+        <small class="error" id="confirmError"></small>
+
+    </div>
+    <div class="buttons">
+         <button id="submit" type="submit" value="submit">Submit</button>
+    </div>     
+    <p>Already registered? <a href="index.html">Log in</a></p>
+
+</form>
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="registration.js"></script>
+</body>
+</html>

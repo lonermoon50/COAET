@@ -3,32 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="COAE&T Student Corner - Your go-to resource for study materials, career guidance, and college information for agricultural engineering students.">
-    <link rel="icon" href="COAE&T withoutbg.png" image/png">
-    <title>COAE&T Student Corner</title>
+    <link rel="icon" href="COAE&T_withoutbg.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="1styear.css"> <!-- Reuse or create a new CSS file if needed -->
+    <link rel="stylesheet" href="frontpage.css"> <!-- Reuse or create a new CSS file if needed -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Give Feedback</title>
 </head>
-<body bgcolor="#EDF1D6">
-    <!-- first page -->
-     <section id="classes">
-        <h1 align="center" style="color: #000000; font-size: 36px;"><a href="https://hau.ac.in/">
-            <img src="ccshau-removebg-preview.png" alt="Uni logo" style="height: 50px;"></a><mark> Welcome Future Agrineers</mark><a href="frontpage.html">
-            <img src="COAE&T withoutbg.png" alt="Website Logo" style="height: 50px;"></a></h1>
-           
-    <!--Classes-->   
-    <h2 align="center" style="color: #000000;"><mark>Choose your Class</mark></h2>
-    <nav>
-    <table align="center" width="100%" border="0" cellpadding="15">
-        <tr>
-        <th bgcolor="#40513B" style="border-radius: 10px;"><a href="1styear.html">1st year</a></th>
-        <th bgcolor="#40513B" style="border-radius: 10px;"><a href="2ndyear.html">2nd year</a></th>
-        <th bgcolor="#40513B" style="border-radius: 10px;"><a href="3rdyear.html">3rd year</a></th>
-        <th bgcolor="#40513B" style="border-radius: 10px;"><a href="finalyear.html">Final year</a></th>
-        <th bgcolor="#40513B" style="border-radius: 10px;"><a href="departments.html">Departments</a></th>
-        <th bgcolor="#40513B" style="border-radius: 10px;"><a href="scolarships.html">Scolarships</a></th>
-        <th bgcolor="#40513B" style="border-radius: 10px;"><a href="faqs.html">FAQs</a></th>
-        </tr>
-    </table> 
-    </nav> 
-    </section> 
+<body>
+    <div id="header">
+        <div class="heading"><h1>Feedback regarding our work</h1></div>
+        <div id="navbar">
+            <a href="homepage.html" class="nav-item">home</a>
+            <select class="nav-item" id="classes" onchange="location = this.value;">
+                <option value="#">--SELECT CLASS--</option>
+                <option value="1styear.html">1st Year</option>
+                <option value="2ndyear.html">2nd Year</option>
+                <option value="3rdyear.html">3rd Year</option>
+                <option value="#">Final Year</option>
+            </select>
+            <a href="departments.html" class="nav-item">departments</a>
+            <a href="scholarships.html" class="nav-item">scholarships</a>
+            <a href="gallery.html" class="nav-item">gallery</a>
+            <a href="feedback.html" class="nav-item">Feedback</a>
+            <div id="searchbar">
+                <input type="text" name="searchbar" placeholder="Search here ...."><button id="nav-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <!-- Main Feedback Section -->
+    <section id="feedback-section" style="max-width: 800px; margin: 0 auto; padding: 20px;">
+        <h2 align="center">Share Your Feedback</h2>
+        <p align="center">We value your input! Help us improve the College of Agriculture Engineering & Technology website.</p>
+        
+        <form id="feedback-form" action="/submit-feedback" method="POST"> <!-- Change action to your backend endpoint -->
+            <label for="firstName">Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Your Name" value=""> <!-- Pre-fill with logged-in user's name via backend -->
+
+            <label >Roll No.:</label>
+            <input type="text" id="rollNo" name="rollNo" required placeholder="Your Roll no." value=""> <!-- Pre-fill if logged in -->
+
+            <label for="type">Feedback Type:</label>
+            <select id="type" name="feedbackType" required>
+                <option value="">--Select--</option>
+                <option value="general">General Feedback</option>
+                <option value="bug">Bug Report</option>
+                <option value="suggestion">Suggestion</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="rating">Rating (1-5):</label>
+            <div class="rating">
+                <input type="radio" id="star5" name="rating" value="5"><label for="star5"><i class="fa-star"></i></label>
+                <input type="radio" id="star4" name="rating" value="4"><label for="star4"><i class="fa-star"></i></label>
+                <input type="radio" id="star3" name="rating" value="3"><label for="star3"><i class="fa-star"></i></label>
+                <input type="radio" id="star2" name="rating" value="2"><label for="star2"><i class="fa-star"></i></label>
+                <input type="radio" id="star1" name="rating" value="1"><label for="star1"><i class="fa-star"></i></label>
+            </div>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="6" required placeholder="Your feedback here..."></textarea>
+
+            <button type="submit">Submit Feedback</button>
+        </form>
+
+        <div id="success-message" style="display: none; color: green; text-align: center; margin-top: 20px;">Thank you for your feedback!</div>
+        
+        <!-- Optional: Display recent feedback -->
+        <h3>Recent Feedback</h3>
+        <ul id="feedback-list">
+            <!-- Dynamically populate via backend/JS -->
+        </ul>
+    </section>
+
+    <section id="footer">
+        <div id="footer" align="center">
+            Made with &hearts;<br>
+            by Pankaj Giri &#169;<br>
+            Email us coaetstudentcorner@gmail.com
+        </div>
+    </section>
+
+    <script type="module" src="frontpage.js"></script> <!-- Add JS file for validation/submission -->
 </body>
-</html> 
+</html>

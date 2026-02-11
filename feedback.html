@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="1styear.css">
+    <link rel="stylesheet" href="feedback.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Give Feedback</title>
+</head>
+<body>
+<div id="header">
+    <div class="heading"><h1>Feedback regarding our work</h1></div>
+    <div id="navbar">
+         <a href="homepage.html" class="nav-item">home</a>
+        <select class="nav-item" id="classes" onchange="location = this.value;">
+  <option value="#">--SELECT CLASS--</option>
+  <option value="1styear.html">1st Year</option>
+  <option value="2ndyear.html">2nd Year</option>
+  <option value="3rdyear.html">3rd Year</option>
+  <option value="#">Final Year</option>
+</select>
+        <a href="departments.html" class="nav-item">departments</a>
+        <a href="scholarships.html" class="nav-item">scholarships</a>
+        <a href="gallery.html" class="nav-item">gallery</a>
+
+        <a href="feedback.html" class="nav-item">Feedback</a>
+        <div id="searchbar">
+            <input type="text" name="searchbar" placeholder="Search here ...."><button id="nav-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+    </div></div>
+<div class="body-container" > 
+    <h1>Share your feedback</h1>
+        <form id="feedback-form" class="feedback-container">
+        <div class="input">
+            <label>Name: </label>
+            <input class="text-input" type="text" name="firstName" placeholder="Enter your first name" required />
+        </div>
+        <div class="input">
+            <label>Roll No: </label>
+            <input class="text-input" type="text" name="rollNo" placeholder="Enter your Roll no." required />
+        </div>
+        <div class="input">
+            <label>Rating (1-5): </label><div class="radio_input">
+             <input class="text-input" type="radio" id="star1" name="rating" value="1">
+             <input class="text-input" type="radio" id="star2" name="rating" value="2">
+             <input class="text-input" type="radio" id="star3" name="rating" value="3">
+             <input class="text-input" type="radio" id="star4" name="rating" value="4">
+             <input class="text-input" type="radio" id="star5" name="rating" value="5">
+        </div></div>
+        <div class="input">
+            <label>Feedback type: </label>
+            <select name="feedbackType" id="select" required>
+                <option value="">-Select type-</option>
+                <option value="genral">Genral Feedback </option>
+                <option value="bug">Bug Report</option>
+                <option value="suggestion">Suggestion</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="input">
+                <label>Mesaage</label>
+                <textarea name="message" id="message" rows="6" placeholder="Write your feedback here....." required></textarea>
+            </div>       
+            <button id="submitbtn" type="submit">Submit feedback</button>
+            <p id="thanksMessage">
+   Thank you for your feedback! It helps alot 🥹
+</p>
+        </div>  
+    </form>
+        
+
+</div>
+<section id="footer">
+    <div id="footer" align="center">
+            Made with &hearts;<br>
+            by Pankaj Giri &#169;<br>
+            Email us coaetstudentcorner@gmail.com
+    </div>
+</section>
+<script type="module" src="firebase.js"></script>
+<script type="module" src="feedback.js"></script>
+</body></html> 
+
+
+

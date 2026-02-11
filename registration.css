@@ -1,0 +1,137 @@
+*{
+    font-family: 'poppins';
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#registration-heading {
+        text-align: center;
+        padding: 10px;
+        font-size: 35px;
+    }
+
+.container {
+    margin-bottom: 40px;
+    font-size: 20px;
+    height: 900px;
+    width: 90%;
+    background-color: #E1EEBC;
+    border: 2px solid #3a7d44;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: black;
+    box-shadow: 0 0 1rem rgba(58, 125, 68, 1);
+
+}
+h2 {
+    font-size: 28px;
+}
+.input {
+    width: 80%;
+    flex-direction: column;
+    display: flex;
+    /* justify-content: space-around; */
+    
+}
+input, select {
+    font-size: 15px;
+    height: 35px;
+    border: 1px solid #3a7d44;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.error {
+    color: red;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.buttons {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+}
+button {
+    color: #E1EEBC;
+    background-color: #3a7d44;
+    height: 35px;
+    width: 100%;
+    border: none;
+    border-radius: 3px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #1e5631;
+    box-shadow: 0 0 5px rgba(58, 125, 68, 0.5);
+}
+
+button:hover{
+      box-shadow: 0 0 0.5rem rgba(58, 125, 68, 0.829);
+      cursor: pointer;
+
+}
+/* Toggle button */
+.theme-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #3a7d44;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Dark mode styles */
+.dark-mode body {
+    background-color: #121212;
+}
+
+.dark-mode .container {
+    background-color: #1f1f1f;
+    color: #e5e5e5;
+}
+
+.dark-mode input,
+.dark-mode select {
+    background-color: #2b2b2b;
+    color: #ffffff;
+    border: 1px solid #555;
+}
+
+.dark-mode button {
+    background-color: #4ade80;
+    color: #000;
+}
+a {
+    text-decoration: none;
+}
+@media (max-width: 456px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    #registration-heading {
+        text-align: center;
+        padding: 10px;
+        font-size: 25px;
+    }
+}

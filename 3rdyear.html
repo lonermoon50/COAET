@@ -5,35 +5,236 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="COAE&T_withoutbg.png" image/png">
     <link rel="stylesheet" href="1styear.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Btech 3rd year</title>
 </head>
 <body>
 <div id="header">
     <!-- <div class="logo" style="text-align: right;"><a href="https://hau.ac.in/"><img src="ccshau-removebg-preview.png" alt="Uni logo" height="100%"></a></div> -->
-    <div class="heading"><h1>Welcome Future Agrineers</h1></div>
- 
+    <div class="heading"><h1>BTECH 3rd YEAR</h1></div>
     
-    <!-- <div class="logo" style="text-align: left;"><a href="index.html"><img src="COAE&T_withoutbg.png" alt="clg_logo" height="100%"></a></div> -->
+    
+    <!-- <div class="logo" style="text-align: left;"><a href="homepage.html"><img src="COAE&T_withoutbg.png" alt="clg_logo" height="100%"></a></div> -->
     <div id="navbar">
-         <a href="index.html" class="nav-item">home</a>
+         <a href="homepage.html" class="nav-item">home</a>
         <select class="nav-item" id="classes" onchange="location = this.value;">
-  <option value="index.html">--SELECT CLASS--</option>
+  <option value="homepage.html">--SELECT CLASS--</option>
   <option value="1styear.html">1st Year</option>
   <option value="2ndyear.html">2nd Year</option>
   <option value="3rdyear.html">3rd Year</option>
   <option value="finalyear.html">Final Year</option>
 </select>
         <!-- <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a> -->
-        <a href="#" class="nav-item">departments</a>
-        <a href="scolarships.html" class="nav-item">scolarships</a>
+        <a href="departments.html" class="nav-item">departments</a>
+        <a href="scholarships.html" class="nav-item">scholarships</a>
         <a href="gallery.html" class="nav-item">gallery</a>
-
-        <a href="faqs.html" class="nav-item">FAQs</a>
+        <a href="feedback.html" class="nav-item">Feedback</a>
         <div id="searchbar">
             <input type="text" name="searchbar" placeholder="Search here ...."><button id="nav-button"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
+        <select class="nav-item" id="curriculum" onchange="changeCurriculum()">
+            <option value="">--Choose Curriculum--</option>
+            <option value="6th">6th Dean Committee</option>
+            <option value="5th">5th Dean Committee</option>
+        </select>
     </div></div><br>
-    <h1 align="center">this page will be updated soon</h1>
+    <p class="page-intro" align="center">
+   This page is designed for B.Tech 3rd-year students of Agricultural Engineering at COAE&T. Here you can access course syllabi, video lectures, and written notes semester-wise. Stay updated, stay prepared!
+    </p>
+    <div id="5th_dean_curriculum">
+    <div id="first-sem">
+        <p>courses according to 5th dean Committee</p>
+        <div class="heading"><h1>3rd YEAR 1st SEM courses</h1></div>
+        <div class="table-container">
+        <table>
+            <th>Sr. No.</th>
+            <th>Course Code</th>
+            <th>Course Title and credit hours</th>
+            <th>  Syllabus  </th>
+            <th>Video Lecture</th>
+            <th>Written Notes</th>
+            <tr>
+                <td class="odd_row">1.</td>
+                <td class="odd_row">FMPE 301</td>
+                <td class="odd_row">Tractor Systems and Control<br>(2+1)</td>
+                <td class="odd_row"><a href="courses_5th_sem_5th_dean_curriculum/syllabus_FMPE_301.pdf" download class="odd_row_material-link">Download</a></td>
+                <td class="odd_row"><a href="" class="odd_row_material-link">Youtube</a></td>
+                <td class="odd_row"><a href="" class="odd_row_material-link">Download PDF</a></td>
+            </tr>
+            <tr>
+                <td class="even_row">2.</td>
+                <td class="even_row">FMPE 302</td>
+                <td class="even_row">Farm Machinery and Equipment - I<br>(2+1)</td>
+                <td class="even_row"><a href="courses_5th_sem_5th_dean_curriculum/syllabus_FMPE_302.pdf" download class="even_row_material-link">Download</a></td>
+                <td class="even_row"><a href="" class="even_row_material-link">Youtube</a></td>
+                <td class="even_row"><a href="" class="even_row_material-link">Download PDF</a></td>
+            </tr>
+            <tr>
+                <td class="odd_row">3.</td>
+                <td class="odd_row">PFE 301</td>
+                <td class="odd_row">Agricultural structures and environmental control<br>(2+1)</td>
+                <td class="odd_row"><a href="courses_5th_sem_5th_dean_curriculum/syllabus_PFE_301.pdf" download class="odd_row_material-link">Download</a></td>
+                <td class="odd_row"><a href="" class="odd_row_material-link">Youtube</a></td>
+                <td class="odd_row"><a href="" class="odd_row_material-link">Download PDF</a></td>
+            </tr>
+            <tr>
+                <td class="even_row">4.</td>
+                <td class="even_row">PFE 302</td>
+                <td class="even_row">Post Harvest Engineering of Cereals; Pulses and Oil Seeds<br>(2+1)</td>
+                <td class="even_row"><a href="courses_5th_sem_5th_dean_curriculum/syllabus_PFE_302.pdf" download class="even_row_material-link">Download</a></td>
+                <td class="even_row"><a href="" class="even_row_material-link">Youtube</a></td>
+                <td class="even_row"><a href="" class="even_row_material-link">Download PDF</a></td>
+            </tr>
+            <tr>
+                <td class="odd_row">5.</td>
+                <td class="odd_row">RBEE 301</td>
+                <td class="odd_row">Renewable Power Sources<br>(2+1)</td>
+                <td class="odd_row"><a href="courses_5th_sem_5th_dean_curriculum/syllabus_RBEE_301.pdf" download class="odd_row_material-link">Download</a></td>
+                <td class="odd_row"><a href="" class="odd_row_material-link">Youtube</a></td>
+                <td class="odd_row"><a href="" class="odd_row_material-link">Download PDF</a></td>
+            </tr>
+            <tr>
+                <td class="even_row">6.</td>
+                <td class="even_row">SWE 301</td>
+                <td class="even_row">Soil and Water Conservation Engineering<br>(2+1)</td>
+                <td class="even_row"><a href="courses_5th_sem_5th_dean_curriculum/syllabus_SWE_301.pdf" download class="even_row_material-link">Download</a></td>
+                <td class="even_row"><a href="" class="even_row_material-link">Youtube</a></td>
+                <td class="even_row"><a href="" class="even_row_material-link">Download PDF</a></td>
+            </tr>
+            <tr>
+                <td class="odd_row">7.</td>
+                <td class="odd_row">SWE 302</td>
+                <td class="odd_row">Watershed Planning and Management<br>(1+1)</td>
+                <td class="odd_row"><a href="courses_5th_sem_5th_dean_curriculum/syllabus_SWE_302.pdf" download class="odd_row_material-link">Download</a></td>
+                <td class="odd_row"><a href="" class="odd_row_material-link">Youtube</a></td>
+                <td class="odd_row"><a href="" class="odd_row_material-link">Download PDF</a></td>
+            </tr>
+            <tr>
+                <td class="even_row">8.</td>
+                <td class="even_row">SWE 303</td>
+                <td class="even_row">Drainage Engineering<br>(1+1)</td>
+                <td class="even_row"><a href="courses_5th_sem_5th_dean_curriculum/syllabus_SWE_303.pdf" download class="even_row_material-link">Download</a></td>
+                <td class="even_row"><a href="" class="even_row_material-link">Youtube</a></td>
+                <td class="even_row"><a href="" class="even_row_material-link">Download PDF</a></td>
+            </tr>
+          
+            <tr>
+                <td class="even_row">9.</td>
+                <td class="even_row">CCA</td>
+                <td class="even_row">Co-curricular Activity<br>(0+1)</td>
+                <td class="even_row">-</td>
+                <td class="even_row">-</td>
+                <td class="even_row">-</td>
+            </tr>
+            <!-- <tr>
+                <td class="odd_row">9.</td>
+                <td class="odd_row">FMPE 390/PFE 390/ <br> RBEE 390/SWE 390</td>
+                <td class="odd_row">Skill development Training - I<br>(0+5)</td>
+                <td class="odd_row"><a class="odd_row_material-link">-</a></td>
+                <td class="odd_row"><a href="" class="odd_row_material-link">-</a></td>
+                <td class="odd_row"><a href="" class="odd_row_material-link">-</a></td>
+            </tr> -->
+        </table>
+        </div>
+    </div>
     
-</body></html>
+     <div id="second-sem">
+        <div class="heading"><h1>3rd YEAR 2nd SEM courses</h1></div>
+        <div class="table-container">
+        <table>
+            <th>Sr. No.</th>
+            <th>Course Code</th>
+            <th>Course Title and credit hours</th>
+            <th>  Syllabus  </th>
+            <th>Video Lecture</th>
+            <th>Written Notes</th>
+            <tr>
+                <td class="odd_row">1.</td>
+                <td class="odd_row">EE 301</td>
+                <td class="odd_row">Computer Programming and Data Structures<br>(1+2)</td>
+                <td class="odd_row"><a href="courses_6th_sem_5th_dean_curriculum/syllabus_EE_301.pdf" download class="odd_row_material-link">Download</a></td>
+                <td class="odd_row"><a href="" class="odd_row_material-link">Youtube</a></td>
+                <td class="odd_row"><a href="" class="odd_row_material-link">Download PDF</a></td>
+            </tr>
+            <tr>
+                <td class="even_row">2.</td>
+                <td class="even_row">RBEE 302</td>
+                <td class="even_row">Bio-energy Systems: Design and Applications<br>(2+1)</td>
+                <td class="even_row"><a href="courses_6th_sem_5th_dean_curriculum/syllabus_RBEE_302.pdf" download class="even_row_material-link">Download</a></td>
+                <td class="even_row"><a href="" class="even_row_material-link">Youtube</a></td>
+                <td class="even_row"><a href="" class="even_row_material-link">Download PDF</a></td>
+            </tr>
+            <tr>
+                <td class="odd_row">3.</td>
+                <td class="odd_row">FMPE 303</td>
+                <td class="odd_row">Farm Machinery and Equipment - II<br>(2+1)</td>
+                <td class="odd_row"><a href="courses_6th_sem_5th_dean_curriculum/syllabus_FMPE_303.pdf" download class="odd_row_material-link">Download</a></td>
+                <td class="odd_row"><a href="" class="odd_row_material-link">Youtube</a></td>
+                <td class="odd_row"><a href="" class="odd_row_material-link">Download PDF</a></td>
+            </tr>
+            <tr>
+                <td class="even_row">4.</td>
+                <td class="even_row">FMPE 304</td>
+                <td class="even_row">Tractor and Farm Machinery Operation and Maintenance<br> (0+2)</td>
+                <td class="even_row"><a href="courses_6th_sem_5th_dean_curriculum/syllabus_FMPE_304.pdf" download class="even_row_material-link">Download</a></td>
+                <td class="even_row"><a href="" class="even_row_material-link">Youtube</a></td>
+                <td class="even_row"><a href="" class="even_row_material-link">Download PDF</a></td>
+            </tr>
+            <tr>
+                <td class="odd_row">5.</td>
+                <td class="odd_row">PFE 303</td>
+                <td class="odd_row">Post Harvest Engineering of Horticultural Crops<br>(1+1)</td>
+                <td class="odd_row"><a href="courses_6th_sem_5th_dean_curriculum/syllabus_PFE_303.pdf" download class="odd_row_material-link">Download</a></td>
+                <td class="odd_row"><a href="" class="odd_row_material-link">Youtube</a></td>
+                <td class="odd_row"><a href="" class="odd_row_material-link">Download PDF</a></td>
+            </tr>
+            <tr>
+                <td class="even_row">6.</td>
+                <td class="even_row">PFE 304</td>
+                <td class="even_row">Dairy and Food Engineering<br>(2+1)</td>
+                <td class="even_row"><a href="courses_6th_sem_5th_dean_curriculum/syllabus_PFE_304.pdf" download class="even_row_material-link">Download</a></td>
+                <td class="even_row"><a href="" class="even_row_material-link">Youtube</a></td>
+                <td class="even_row"><a href="" class="even_row_material-link">Download PDF</a></td>
+            </tr>
+            <tr>
+                <td class="odd_row">7.</td>
+                <td class="odd_row">SWE 304</td>
+                <td class="odd_row">Water Harvesting and Soil Conservation Structures<br>(2+1)</td>
+                <td class="odd_row"><a href="courses_6th_sem_5th_dean_curriculum/syllabus_SWE_304.pdf" download class="odd_row_material-link">Download</a></td>
+                <td class="odd_row"><a href="" class="odd_row_material-link">Youtube</a></td>
+                <td class="odd_row"><a href="" class="odd_row_material-link">Download PDF</a></td>
+            </tr>
+            <tr>
+                <td class="even_row">8.</td>
+                <td class="even_row">SWE 305</td>
+                <td class="even_row">Groundwater, Wells and Pumps<br>(2+1)</td>
+                <td class="even_row"><a href="courses_6th_sem_5th_dean_curriculum/syllabus_SWE_305.pdf" class="even_row_material-link">Download</a></td>
+                <td class="even_row"><a href="" class="even_row_material-link">Youtube</a></td>
+                <td class="even_row"><a href="" class="even_row_material-link">Download PDF</a></td>
+            </tr>
+            <tr>
+                <td class="even_row">9.</td>
+                <td class="even_row">CCA </td>
+                <td class="even_row">co-curricular activity<br>(0+1)</td>
+                <td class="even_row">-</td>
+                <td class="even_row">-</td>
+                <td class="even_row">-</td>
+            </tr>
+        </table>
+        </div>
+    </div>
+    </div>
+    <div id="6th_dean_curriculum" style="display: none;"><b><i>This section will be added soon</i></b></div>
+    <div id="additional-resource">
+        
+    </div>
+
+    <div id="footer" align="center">
+            Made with &hearts;<br>
+            by Pankaj Giri &#169;<br>
+            Email us coaetstudentcorner@gmail.com
+    </div>
+    <script src="1styear.js"></script>
+</body>
+</html>
