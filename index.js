@@ -41,6 +41,7 @@ async function validateRoll() {
         // 🔐 Check password manually
         if (studentData.password !== password) {
             message.textContent = "Wrong password";
+            message.style.display = "block"; 
             return;
         }
 
@@ -60,4 +61,5 @@ async function validateRoll() {
     }
 }
 loginButton.addEventListener("click", validateRoll);
+
 
