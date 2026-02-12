@@ -523,19 +523,19 @@ marquee {
 }
 
 html {
-  font-size: 14px; /* base size: 1rem = 16px */
+  font-size: 14px; 
 }
 
 body {
   color: #0f1111;
   background-color: #E1EEBC;
-  /* text-transform: capitalize; */
+
 }
 
 
 .uni-logo {
   display: inline-block;
-  height: 3.25rem; /* 100px */
+  height: 3.25rem;
   width: 3.25rem;
 }
 
@@ -552,13 +552,13 @@ body {
 h1 {
   display: inline-block;
   font-weight: 900;
-  font-size: 1.1rem; /* 50px */
+  font-size: 1.1rem;
   font-family: 'poppins';
   text-transform: uppercase;
 }
 
 #navbar {
-  height: 20.6875rem; /* 75px */
+  height: 20.6875rem;
   width: 100%;
   background-color: #3a7d44;
   border-radius: 0.2rem;
@@ -580,14 +580,14 @@ input {
 #nav-button {
   background: #6b4f3b;;
   height: 100%;
-  width: 1.6875rem; /* 27px */
-  font-size: 1.375rem; /* 22px */
+  width: 1.6875rem; 
+  font-size: 1.375rem; 
   border: none;
   border-radius: 0 0.375rem 0.375rem 0;
 }
 
 #searchbar {
-  height: 1.875rem; /* 46px */
+  height: 1.875rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -597,7 +597,7 @@ input {
 
 .nav-item {
   text-decoration: none;
-  font-size: 1.4rem; /* 35px */
+  font-size: 1.4rem; 
   color: white;
   background-color: #3a7d44;
 }
@@ -615,62 +615,55 @@ input {
 }
 
 h2 {
-  font-size: 1.2rem; /* 35px */
+  font-size: 1.2rem; 
   text-decoration:wavy;
   font-weight: 1000;
-  margin-left: 1rem; /* 30px */
+  margin-left: 1rem; 
   margin-top: 1rem;
 }
 
 #welcome {
-  font-size: 1.1rem; /* 27px */
+  font-size: 1.1rem; 
 }
 
 #media {
   display: flex;
   overflow-x: auto;
-  gap: 3.125rem; /* 50px */
-  padding: 1.25rem; /* 20px */
+  gap: 3.125rem; 
+  padding: 1.25rem; 
   scroll-behavior: smooth;
   max-width: 100%;
   white-space: nowrap;
 }
 
 .photos {
-  height: 20.5rem; /* 600px */
+  height: 20.5rem; 
   width: 20.5rem;
   flex-shrink: 0;
-  border: 0.3125rem #3a7d44 solid; /* 5px */
+  border: 0.3125rem #3a7d44 solid; 
   border-radius: 0.625rem;
   display: flex;
   align-items: start;
   justify-content: center;
-  font-size: 1rem; /* 30px */
+  font-size: 1rem; 
 }
-
-/* .photos:hover {
-  height: 21rem;
-  width: 21rem;
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 1);
-} */
 
 #media::-webkit-scrollbar {
   display: none;
 }
 
 ul, p {
-  font-size: 1.1rem; /* 27px */
-  /* margin-left: 1rem; */
+  font-size: 1.1rem; 
 }
 marquee {
-  height: 2.5rem; /* 50px */
+  height: 2.5rem; 
   background-color: #3a7d44;
   color: #E1EEBC;
-  font-size: 1.1rem; /* 40px */
+  font-size: 1.1rem; 
   align-content: center;
 }
 
-/* Departments Section */
+
 
 #departments-container {
   display: flex;
@@ -705,21 +698,21 @@ marquee {
  #fmpe {
   height: 31.2%;
   width: 30.6%;
-  top: 16.9%;
+  top: 15%;
   left: 17.4%;
 }
 
 #swe {
   height: 31%;
   width: 30.6%;
-  top: 17%;
-  left: 19.3%;
+  top: 15%;
+  left:20%;
 }
 
 #basic {
   height: 30%;
   width: 38%;
-  top: 15%;
+  top: 16.6%;
   left: 31%;
 }
 
@@ -733,9 +726,8 @@ marquee {
 #pfe {
   height: 36%;
   width: 29%;
-  top: -29.5%;
-  left: 55%;
-} 
+  bottom: 8%;
+  right: 15%;
 
 #blockquote {
   font-size: 1.1rem; /* 28px */
@@ -755,6 +747,7 @@ marquee {
   align-items: center;
   position: relative;
   bottom: 0;
+}
 }
 }
 
