@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <link rel="icon" href="COAE&T_withoutbg.png" image/png">
+    <link rel="icon" href="COAE&T_withoutbg.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <title>COAE&T Students Corner</title>
 </head>
@@ -16,12 +16,11 @@
         <input type="text" id="username" placeholder="Enter your Roll number">
         <input type="password" id="password" placeholder="Enter password">
         <input type="submit" value="Login" id="login">
-        <p id="message"></p>
+        <p id="message" role="alert" aria-live="polite"></p>
         <a href="registration.html">Or Register as new student</a>
     </div>
     <script type="module" src="firebase.js"></script>
     <script type="module" src="index.js"></script>
     
 </body>
-
 </html>

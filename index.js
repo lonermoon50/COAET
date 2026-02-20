@@ -1,65 +1,43 @@
+import { auth } from "./firebase.js";
+import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-
-// loginButton.addEventListener("click", validateRoll);
-import { db } from "./firebase.js";
-import { collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-// 🔹 Grab elements
-const usernameInput = document.getElementById("username"); // roll number input
+const usernameInput = document.getElementById("username");
 const passwordInput = document.getElementById("password");
 const loginButton = document.getElementById("login");
 const message = document.getElementById("message");
 
-// 🔹 Function to validate login
 async function validateRoll() {
-    const roll = usernameInput.value.trim();
-    const password = passwordInput.value.trim();
+  const roll = usernameInput.value.trim().toUpperCase();
+  const password = passwordInput.value.trim();
+  const email = roll + "@coaet.edu";
 
-    message.textContent = "";
+
+
+  message.textContent = "";
+
+  if (!roll || !password) {
     message.style.color = "red";
+    message.textContent = "Enter roll number and password";
+    message.style.display = "block";
+    return;
+  }
 
-    if (!roll || !password) {
-        message.textContent = "Enter roll number and password";
-        message.style.display = "block"; 
-        return;
-    }
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+    message.style.color = "green";
+    message.textContent = "Login successful";
+    message.style.display = "block";
 
-    try {
-        const studentsRef = collection(db, "students");
-        const q = query(studentsRef, where("rollNo", "==", roll));
+    setTimeout(() => {
+      window.location.href = "homepage.html";
+    }, 1000);
 
-        const snapshot = await getDocs(q);
-
-        if (snapshot.empty) {
-            message.textContent = "Roll number not found";
-            message.style.display = "block"; 
-            return;
-        }
-
-        const studentData = snapshot.docs[0].data();
-
-        // 🔐 Check password manually
-        if (studentData.password !== password) {
-            message.textContent = "Wrong password";
-            message.style.display = "block"; 
-            return;
-        }
-
-        // ✅ Login Success
-        message.style.display = "block"; 
-        message.style.color = "green";
-        message.textContent = "Login successful";
-
-        localStorage.setItem("student", JSON.stringify(studentData));
-        setTimeout(() => {
-            window.location.href = "homepage.html";
-        }, 1000);
-
-    } catch (err) {
-        console.error(err);
-        message.textContent = "Error connecting to database";
-    }
+  } catch (err) {
+    message.style.color = "red";
+    message.textContent = "Invalid Roll Number or Password ";
+    message.style.display = "block";
+  }
 }
-loginButton.addEventListener("click", validateRoll);
 
+loginButton.addEventListener("click", validateRoll);
 
