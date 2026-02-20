@@ -1,106 +1,103 @@
-/* ===============================
-   COAE&T Student Corner - JS
-   =============================== */
+import { auth, db } from "./firebase.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { 
+  doc, 
+  getDoc, 
+  collection, 
+  addDoc, 
+  serverTimestamp, 
+  onSnapshot, 
+  orderBy, 
+  query 
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-/* 1️⃣ Active navbar link highlight */
-const navLinks = document.querySelectorAll(".nav-item");
+const adminSection = document.getElementById("admin-section");
+const noticeList = document.getElementById("notice-list");
+const noticeForm = document.getElementById("notice-form");
 
-navLinks.forEach(link => {
-  const linkHref = link.getAttribute("href");
+const ADMIN_UID = "f7xRFBRyZkbRo5ACkQZewfeTNPG3";
 
-  if (linkHref && window.location.href.includes(linkHref)) {
-    link.style.backgroundColor = "#2e7d32";
-    link.style.color = "white";
+onAuthStateChanged(auth, (user) => {
+  if (user && user.uid === ADMIN_UID) {
+    adminSection.style.display = "block";
   }
 });
 
 
-/* 2️⃣ Functional search bar (section navigation) */
+  try {
+    const studentRef = doc(db, "students", user.uid);
+    const studentSnap = await getDoc(studentRef);
 
-const searchInput = document.querySelector("#searchbar input");
-const searchBtn = document.getElementById("nav-button");
+    if (studentSnap.exists()) {
+      const data = studentSnap.data();
 
-searchBtn.addEventListener("click", function () {
-  const query = searchInput.value.trim().toLowerCase();
+      if (data.role === "admin") {
+        if (adminSection) adminSection.style.display = "block";
+      }
+    }
 
-  if (!query) {
-    alert("Type something to search.");
-    return;
+  } catch (error) {
+    console.error("Role check error:", error);
   }
+;
 
-  if (query.includes("department")) {
-    document.getElementById("departments").scrollIntoView({ behavior: "smooth" });
-  }
-  else if (query.includes("mission")) {
-    document.getElementById("list").scrollIntoView({ behavior: "smooth" });
-  }
-  else if (query.includes("gallery")) {
-    window.location.href = "gallery.html";
-  }
-  else if (query.includes("scholarship")) {
-    window.location.href = "scholarships.html";
-  }
-  else {
-    alert("No result found on this page.");
-  }
+if (noticeForm) {
+  noticeForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  searchInput.value = "";
-});
+    const title = document.getElementById("title").value;
+    const message = document.getElementById("message").value;
+    const link = document.getElementById("link").value;
 
 
-/* 3️⃣ Department logo hover animation (CSS-safe) */
-const departmentLogos = document.querySelectorAll("#logo img");
+    try {
+      await addDoc(collection(db, "notices"), {
+        title: title,
+        message: message,
+        link: link || "",
+        createdAt: serverTimestamp()
+      });
 
-departmentLogos.forEach(logo => {
-  logo.addEventListener("mouseenter", () => {
-    logo.classList.add("zoom");
+      noticeForm.reset();
+      alert("Notice posted successfully ");
+
+    } catch (error) {
+      console.error("Error adding notice:", error);
+      alert("Failed to post notice ");
+    }
   });
+}
 
-  logo.addEventListener("mouseleave", () => {
-    logo.classList.remove("zoom");
+if (noticeList) {
+
+  const q = query(
+    collection(db, "notices"),
+    orderBy("createdAt", "desc")
+  );
+
+  onSnapshot(q, (snapshot) => {
+
+    noticeList.innerHTML = "";
+
+    snapshot.forEach((doc) => {
+      const data = doc.data();
+
+      const div = document.createElement("div");
+      div.classList.add("notice-card");
+
+      div.innerHTML = `
+        <h2 class="notice-title" >${data.title}</h2>
+        <p id="notice-para">${data.message || ""}</p>
+        ${data.link ? 
+      `<a href="${data.link}" id="notice-link">
+        Open Link 🔗
+      </a>`: ""}
+      <hr>
+      `;
+
+      noticeList.appendChild(div);
+    });
+
   });
-});
+}
 
-/* 4️⃣ Scroll-to-top button */
-const topBtn = document.createElement("button");
-topBtn.innerText = "↑";
-topBtn.style.position = "fixed";
-topBtn.style.bottom = "20px";
-topBtn.style.right = "20px";
-topBtn.style.padding = "10px 14px";
-topBtn.style.fontSize = "18px";
-topBtn.style.cursor = "pointer";
-topBtn.style.display = "none";
-topBtn.style.zIndex = "1000";
-document.body.appendChild(topBtn);
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    topBtn.style.display = "block";
-  } else {
-    topBtn.style.display = "none";
-  }
-});
-
-topBtn.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
-/* 5️⃣ Dynamic announcements (replaces marquee content) */
-const marquee = document.getElementById("announcement");
-
-const announcements = [
-  "🌾 New session starting from 3rd of August",
-  "📝 HSTES choice filling starting from 7th July",
-  "🏫 Physical counselling will start in September"
-];
-
-let announcementIndex = 0;
-
-// Initial load
-marquee.textContent = announcements[announcementIndex];
-
-setInterval(() => {
-  announcementIndex = (announcementIndex + 1) % announcements.length;
-  marquee.textContent = announcements[announcementIndex];
-}, 3000);
