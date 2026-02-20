@@ -18,7 +18,7 @@ const noticeForm = document.getElementById("notice-form");
 const ADMIN_UID = "f7xRFBRyZkbRo5ACkQZewfeTNPG3";
 
 onAuthStateChanged(auth, (user) => {
-  if (user && user.uid === ADMIN_UID) {
+  if (user.uid === ADMIN_UID) {
     adminSection.style.display = "block";
   }
 });
@@ -100,5 +100,6 @@ if (noticeList) {
 
   });
 }
+
 
 
