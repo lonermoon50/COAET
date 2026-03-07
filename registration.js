@@ -1,55 +1,66 @@
+import { auth, db } from "./firebase.js";
+import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-// 🔹 Imports MUST be at the top
-import { db } from "./firebase.js";
-import { collection, addDoc } from
-"https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-// 🔹 Get elements
 const form = document.getElementById("regform");
 const password = document.getElementById("password");
 const confirmPassword = document.getElementById("confirmpassword");
 const passError = document.getElementById("passError");
 const confirmError = document.getElementById("confirmError");
 
-// 🔹 Submit handler (ONLY ONE)
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   passError.textContent = "";
   confirmError.textContent = "";
 
-  if (password.value === "") {
-    passError.textContent = "Password is required";
-    return;
-  }
-
-  if (confirmPassword.value === "") {
-    confirmError.textContent = "Please confirm your password";
-    return;
-  }
-
   if (password.value !== confirmPassword.value) {
     confirmError.textContent = "Passwords do not match";
     return;
   }
 
-  const formData = new FormData(form);
-  const data = Object.fromEntries(formData.entries());
+  const rollNo = form.rollNo.value.toUpperCase();
+  const passwordValue = password.value;
+
+  // Convert roll number into email
+  const email = rollNo + "@coaet.edu";
 
   try {
-    const docRef = await addDoc(collection(db, "students"), {
-      ...data,
+    // Create Firebase Auth user
+    const userCredential = await createUserWithEmailAndPassword(auth, email, passwordValue);
+    const user = userCredential.user;
+
+    // Save student data in Firestore (WITHOUT password)
+    await addDoc(collection(db, "students"), {
+      uid: user.uid,
+      firstName: form.firstName.value,
+      lastName: form.lastName.value,
+      Gender: form.Gender.value,
+      classYear: form.classYear.value,
+      semester: form.semester.value,
+      password: form.password.value,
+      rollNo: rollNo,
       createdAt: new Date()
     });
 
-    console.log("Saved with ID:", docRef.id);
     alert("Registration successful ✅");
-
-    form.reset();
     window.location.href = "index.html";
 
-  } catch (error) {
-    console.error("Firestore error:", error);
-    alert("Error saving data ❌");
+  } 
+  catch (err) {
+
+  if (err.code === "auth/email-already-in-use") {
+    alert("This Roll Number is already registered. Please login instead.");
   }
+
+  else if (err.code === "auth/weak-password") {
+    alert("Password must be at least 6 characters.");
+  }
+
+  else {
+    alert("Registration failed: " + err.message);
+  }
+
+}
+
 });
