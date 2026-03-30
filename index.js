@@ -1,3 +1,32 @@
+import { onAuthStateChanged } 
+from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+// 🚀 Auto login (skip login page if already logged in)
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+        setTimeout(() => {
+
+        if (studentClass === "1st Year") {
+          window.location.href = "1styear.html";
+        }
+
+        else if (studentClass === "2nd Year") {
+          window.location.href = "2ndyear.html";
+        }
+
+        else if (studentClass === "3rd Year") {
+          window.location.href = "3rdyear.html";
+        }
+
+        else {
+          window.location.href = "homepage.html";
+        }
+
+      }, 1000);;
+  }
+});
+
+
 import { auth, db } from "./firebase.js";
 
 import { signInWithEmailAndPassword } 
@@ -30,13 +59,13 @@ async function validateRoll() {
 
   try {
 
-   
+    // 🔐 Firebase Authentication Login
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
 
     console.log("Logged in UID:", user.uid);
 
-    
+    // 🔎 Find student document using uid
     const q = query(
       collection(db, "students"),
       where("uid", "==", user.uid)
