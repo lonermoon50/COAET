@@ -20,58 +20,35 @@ const studentSemester = document.getElementById("studentSemester");
 const logoutBtn = document.getElementById("logout");
 // Detect logged in user
 onAuthStateChanged(auth, async (user) => {
+onAuthStateChanged(auth, async (user) => {
 
-  if (user) {
-
-    // find student data
-    const q = query(
-      collection(db, "students"),
-      where("uid", "==", user.uid)
-    );
-
-    const querySnapshot = await getDocs(q);
-
-    if (!querySnapshot.empty) {
-
-      const data = querySnapshot.docs[0].data();
-
-      // display data
-      studentName.textContent = data.firstName;
-      studentRoll.textContent = data.rollNo;
-      studentClass.textContent = data.classYear;
-      studentSemester.textContent = data.semester + " " + "Sem";
-
-    }
-
-  } 
-  else {
-
-    // if not logged in redirect to login page
+  if (!user) {
     window.location.href = "index.html";
-
+    return;
   }
 
-});
-
-
-// Logout
-logoutBtn.addEventListener("click", async () => {
-
-  await signOut(auth);
-  window.location.href = "index.html";
-
-});
-
-const adminSection = document.getElementById("admin-section");
-const noticeList = document.getElementById("notice-list");
-const noticeForm = document.getElementById("notice-form");
-
-const ADMIN_UID = "f7xRFBRyZkbRo5ACkQZewfeTNPG3";
-
-onAuthStateChanged(auth, (user) => {
-  if (user && user.uid === ADMIN_UID) {
+  // 🔐 ADMIN CHECK
+  if (user.uid === ADMIN_UID) {
     adminSection.style.display = "block";
   }
+
+  // 🔎 FETCH STUDENT DATA
+  const q = query(
+    collection(db, "students"),
+    where("uid", "==", user.uid)
+  );
+
+  const querySnapshot = await getDocs(q);
+
+  if (!querySnapshot.empty) {
+    const data = querySnapshot.docs[0].data();
+
+    studentName.textContent = data.firstName;
+    studentRoll.textContent = data.rollNo;
+    studentClass.textContent = data.classYear;
+    studentSemester.textContent = data.semester + " Sem";
+  }
+
 });
 
 
