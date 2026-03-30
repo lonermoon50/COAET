@@ -1,9 +1,24 @@
+import { auth, db } from "./firebase.js";
 import { onAuthStateChanged } 
 from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 // 🚀 Auto login (skip login page if already logged in)
 onAuthStateChanged(auth, (user) => {
   if (user) {
+    const q = query(
+      collection(db, "students"),
+      where("uid", "==", user.uid)
+    );
+
+    const querySnapshot = await getDocs(q);
+
+    if (!querySnapshot.empty) {
+
+      const studentData = querySnapshot.docs[0].data();
+      console.log("Student Data:", studentData);
+
+      const studentClass = studentData.classYear;
+      
         setTimeout(() => {
 
         if (studentClass === "1st Year") {
@@ -22,12 +37,12 @@ onAuthStateChanged(auth, (user) => {
           window.location.href = "homepage.html";
         }
 
-      }, 1000);;
+      }, 500);
   }
 });
 
 
-import { auth, db } from "./firebase.js";
+
 
 import { signInWithEmailAndPassword } 
 from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
