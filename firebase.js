@@ -1,5 +1,5 @@
 // Import Firebase modules
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getAuth, setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
@@ -18,6 +18,19 @@ const app = initializeApp(firebaseConfig);
 
 // Initialize Firestore
 export const db = getFirestore(app);
+// export const auth = getAuth(app);
+// import { getAuth, setPersistence, browserLocalPersistence } 
+// from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
 export const auth = getAuth(app);
+
+// 🔥 Keep user logged in even after closing browser
+setPersistence(auth, browserLocalPersistence)
+  .then(() => {
+    console.log("Persistence enabled");
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 
 
