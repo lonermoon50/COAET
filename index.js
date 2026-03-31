@@ -1,9 +1,17 @@
 import { auth, db } from "./firebase.js";
-import { onAuthStateChanged } 
-from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-// 🚀 Auto login (skip login page if already logged in)
-onAuthStateChanged(auth, (user) => {
+import { 
+  onAuthStateChanged, 
+  signInWithEmailAndPassword 
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+import { 
+  collection, query, where, getDocs 
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+
+// 🚀 Auto login
+onAuthStateChanged(auth, async (user) => {
   if (user) {
     const q = query(
       collection(db, "students"),
@@ -13,44 +21,24 @@ onAuthStateChanged(auth, (user) => {
     const querySnapshot = await getDocs(q);
 
     if (!querySnapshot.empty) {
-
       const studentData = querySnapshot.docs[0].data();
-      console.log("Student Data:", studentData);
-
       const studentClass = studentData.classYear;
-      
-        setTimeout(() => {
 
-        if (studentClass === "1st Year") {
-          window.location.href = "1styear.html";
-        }
-
-        else if (studentClass === "2nd Year") {
-          window.location.href = "2ndyear.html";
-        }
-
-        else if (studentClass === "3rd Year") {
-          window.location.href = "3rdyear.html";
-        }
-
-        else {
-          window.location.href = "homepage.html";
-        }
-
-      }, 500);
+      if (studentClass === "1st Year") {
+        window.location.href = "1styear.html";
+      } else if (studentClass === "2nd Year") {
+        window.location.href = "2ndyear.html";
+      } else if (studentClass === "3rd Year") {
+        window.location.href = "3rdyear.html";
+      } else {
+        window.location.href = "homepage.html";
+      }
+    }
   }
 });
 
 
-
-
-import { signInWithEmailAndPassword } 
-from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-
-import { collection, query, where, getDocs } 
-from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-
+// DOM
 const usernameInput = document.getElementById("username");
 const passwordInput = document.getElementById("password");
 const loginButton = document.getElementById("login");
@@ -58,7 +46,6 @@ const message = document.getElementById("message");
 
 
 async function validateRoll() {
-
   const roll = usernameInput.value.trim().toUpperCase();
   const password = passwordInput.value.trim();
   const email = roll + "@coaet.edu";
@@ -73,14 +60,9 @@ async function validateRoll() {
   }
 
   try {
-
-    // 🔐 Firebase Authentication Login
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
 
-    console.log("Logged in UID:", user.uid);
-
-    // 🔎 Find student document using uid
     const q = query(
       collection(db, "students"),
       where("uid", "==", user.uid)
@@ -89,54 +71,37 @@ async function validateRoll() {
     const querySnapshot = await getDocs(q);
 
     if (!querySnapshot.empty) {
-
       const studentData = querySnapshot.docs[0].data();
-      console.log("Student Data:", studentData);
-
       const studentClass = studentData.classYear;
 
       message.style.color = "green";
-      message.textContent = "Login successful ";
+      message.textContent = "Login successful";
       message.style.display = "block";
 
       setTimeout(() => {
-
         if (studentClass === "1st Year") {
           window.location.href = "1styear.html";
-        }
-
-        else if (studentClass === "2nd Year") {
+        } else if (studentClass === "2nd Year") {
           window.location.href = "2ndyear.html";
-        }
-
-        else if (studentClass === "3rd Year") {
+        } else if (studentClass === "3rd Year") {
           window.location.href = "3rdyear.html";
-        }
-
-        else {
+        } else {
           window.location.href = "homepage.html";
         }
-
       }, 1000);
 
-    } 
-    else {
+    } else {
       message.style.color = "red";
-      message.textContent = "Student record not found ";
+      message.textContent = "Student record not found";
       message.style.display = "block";
     }
 
-  } 
-  catch (err) {
-
+  } catch (err) {
     console.error(err);
-
     message.style.color = "red";
-    message.textContent = "Invalid Roll Number or Password ";
+    message.textContent = "Invalid Roll Number or Password";
     message.style.display = "block";
-
   }
-
 }
 
 loginButton.addEventListener("click", validateRoll);
