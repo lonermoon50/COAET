@@ -1,8 +1,8 @@
 import { auth, db } from "./firebase.js";
-import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { onAuthStateChanged, signOut } 
+from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
 import { 
-  doc, 
-  getDoc, 
   getDocs, 
   collection, 
   where,
@@ -13,13 +13,23 @@ import {
   query 
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
+
+// 🔹 DOM Elements
 const studentName = document.getElementById("studentName");
 const studentRoll = document.getElementById("studentRoll");
 const studentClass = document.getElementById("studentClass");
 const studentSemester = document.getElementById("studentSemester");
 const logoutBtn = document.getElementById("logout");
-// Detect logged in user
-onAuthStateChanged(auth, async (user) => {
+
+const adminSection = document.getElementById("adminSection");
+const noticeForm = document.getElementById("noticeForm");
+const noticeList = document.getElementById("noticeList");
+
+// 🔹 Replace with your actual admin UID
+const ADMIN_UID = "f7xRFBRyZkbRo5ACkQZewfeTNPG3";
+
+
+// 🔐 Detect logged-in user
 onAuthStateChanged(auth, async (user) => {
 
   if (!user) {
@@ -27,32 +37,50 @@ onAuthStateChanged(auth, async (user) => {
     return;
   }
 
-  // 🔐 ADMIN CHECK
-  if (user.uid === ADMIN_UID) {
+  // 🔐 Admin access
+  if (user.uid === ADMIN_UID && adminSection) {
     adminSection.style.display = "block";
   }
 
-  // 🔎 FETCH STUDENT DATA
-  const q = query(
-    collection(db, "students"),
-    where("uid", "==", user.uid)
-  );
+  // 🔎 Fetch student data
+  try {
+    const q = query(
+      collection(db, "students"),
+      where("uid", "==", user.uid)
+    );
 
-  const querySnapshot = await getDocs(q);
+    const querySnapshot = await getDocs(q);
 
-  if (!querySnapshot.empty) {
-    const data = querySnapshot.docs[0].data();
+    if (!querySnapshot.empty) {
+      const data = querySnapshot.docs[0].data();
 
-    studentName.textContent = data.firstName;
-    studentRoll.textContent = data.rollNo;
-    studentClass.textContent = data.classYear;
-    studentSemester.textContent = data.semester + " Sem";
+      studentName.textContent = data.firstName || "-";
+      studentRoll.textContent = data.rollNo || "-";
+      studentClass.textContent = data.classYear || "-";
+      studentSemester.textContent = data.semester + " Sem" || "-";
+    }
+
+  } catch (err) {
+    console.error("Error fetching student data:", err);
   }
 
 });
 
 
+// 🚪 Logout
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", async () => {
+    try {
+      await signOut(auth);
+      window.location.href = "index.html";
+    } catch (err) {
+      console.error("Logout error:", err);
+    }
+  });
+}
 
+
+// 📝 Add Notice (Admin)
 if (noticeForm) {
   noticeForm.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -60,7 +88,6 @@ if (noticeForm) {
     const title = document.getElementById("title").value;
     const message = document.getElementById("message").value;
     const link = document.getElementById("link").value;
-
 
     try {
       await addDoc(collection(db, "notices"), {
@@ -71,15 +98,17 @@ if (noticeForm) {
       });
 
       noticeForm.reset();
-      alert("Notice posted successfully ");
+      alert("Notice posted successfully");
 
     } catch (error) {
       console.error("Error adding notice:", error);
-      alert("Failed to post notice ");
+      alert("Failed to post notice");
     }
   });
 }
 
+
+// 📢 Show Notices (Realtime)
 if (noticeList) {
 
   const q = query(
@@ -91,20 +120,21 @@ if (noticeList) {
 
     noticeList.innerHTML = "";
 
-    snapshot.forEach((doc) => {
-      const data = doc.data();
+    snapshot.forEach((docItem) => {
+      const data = docItem.data();
 
       const div = document.createElement("div");
       div.classList.add("notice-card");
 
       div.innerHTML = `
-        <h2 class="notice-title" >${data.title}</h2>
-        <p id="notice-para">${data.message || ""}</p>
+        <h2 class="notice-title">${data.title}</h2>
+        <p class="notice-para">${data.message || ""}</p>
         ${data.link ? 
-      `<a href="${data.link}" id="notice-link">
-        Open Link 🔗
-      </a>`: ""}
-      <hr>
+          `<a href="${data.link}" target="_blank" class="notice-link">
+            Open Link 🔗
+          </a>` : ""
+        }
+        <hr>
       `;
 
       noticeList.appendChild(div);
@@ -112,11 +142,3 @@ if (noticeList) {
 
   });
 }
-
-
-
-
-
-
-
-
