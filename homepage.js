@@ -21,9 +21,9 @@ const studentClass = document.getElementById("studentClass");
 const studentSemester = document.getElementById("studentSemester");
 const logoutBtn = document.getElementById("logout");
 
-const adminSection = document.getElementById("adminSection");
-const noticeForm = document.getElementById("noticeForm");
-const noticeList = document.getElementById("noticeList");
+const adminSection = document.getElementById("admin-section");
+const noticeForm = document.getElementById("notice-form");
+const noticeList = document.getElementById("notic-list");
 
 // 🔹 Replace with your actual admin UID
 const ADMIN_UID = "f7xRFBRyZkbRo5ACkQZewfeTNPG3";
