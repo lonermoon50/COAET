@@ -1,8 +1,8 @@
 import { auth, db } from "./firebase.js";
-import { onAuthStateChanged, signOut } 
-from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-
+import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { 
+  doc, 
+  getDoc, 
   getDocs, 
   collection, 
   where,
@@ -13,37 +13,17 @@ import {
   query 
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-
-// 🔹 DOM Elements
 const studentName = document.getElementById("studentName");
 const studentRoll = document.getElementById("studentRoll");
 const studentClass = document.getElementById("studentClass");
 const studentSemester = document.getElementById("studentSemester");
 const logoutBtn = document.getElementById("logout");
-
-const adminSection = document.getElementById("admin-section");
-const noticeForm = document.getElementById("notice-form");
-const noticeList = document.getElementById("notic-list");
-
-// 🔹 Replace with your actual admin UID
-const ADMIN_UID = "f7xRFBRyZkbRo5ACkQZewfeTNPG3";
-
-
-// 🔐 Detect logged-in user
+// Detect logged in user
 onAuthStateChanged(auth, async (user) => {
 
-  if (!user) {
-    window.location.href = "index.html";
-    return;
-  }
+  if (user) {
 
-  // 🔐 Admin access
-  if (user.uid === ADMIN_UID && adminSection) {
-    adminSection.style.display = "block";
-  }
-
-  // 🔎 Fetch student data
-  try {
+    // find student data
     const q = query(
       collection(db, "students"),
       where("uid", "==", user.uid)
@@ -52,35 +32,50 @@ onAuthStateChanged(auth, async (user) => {
     const querySnapshot = await getDocs(q);
 
     if (!querySnapshot.empty) {
+
       const data = querySnapshot.docs[0].data();
 
-      studentName.textContent = data.firstName || "-";
-      studentRoll.textContent = data.rollNo || "-";
-      studentClass.textContent = data.classYear || "-";
-      studentSemester.textContent = data.semester + " Sem" || "-";
+      // display data
+      studentName.textContent = data.firstName;
+      studentRoll.textContent = data.rollNo;
+      studentClass.textContent = data.classYear;
+      studentSemester.textContent = data.semester + " " + "Sem";
+
     }
 
-  } catch (err) {
-    console.error("Error fetching student data:", err);
+  } 
+  else {
+
+    // if not logged in redirect to login page
+    window.location.href = "index.html";
+
   }
 
 });
 
 
-// 🚪 Logout
-if (logoutBtn) {
-  logoutBtn.addEventListener("click", async () => {
-    try {
-      await signOut(auth);
-      window.location.href = "index.html";
-    } catch (err) {
-      console.error("Logout error:", err);
-    }
-  });
-}
+// Logout
+logoutBtn.addEventListener("click", async () => {
+
+  await signOut(auth);
+  window.location.href = "index.html";
+
+});
+
+const adminSection = document.getElementById("admin-section");
+const noticeList = document.getElementById("notice-list");
+const noticeForm = document.getElementById("notice-form");
+
+const ADMIN_UID = "f7xRFBRyZkbRo5ACkQZewfeTNPG3";
+
+onAuthStateChanged(auth, (user) => {
+  if (user && user.uid === ADMIN_UID) {
+    adminSection.style.display = "block";
+  }
+});
 
 
-// 📝 Add Notice (Admin)
+
 if (noticeForm) {
   noticeForm.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -88,6 +83,7 @@ if (noticeForm) {
     const title = document.getElementById("title").value;
     const message = document.getElementById("message").value;
     const link = document.getElementById("link").value;
+
 
     try {
       await addDoc(collection(db, "notices"), {
@@ -98,17 +94,15 @@ if (noticeForm) {
       });
 
       noticeForm.reset();
-      alert("Notice posted successfully");
+      alert("Notice posted successfully ");
 
     } catch (error) {
       console.error("Error adding notice:", error);
-      alert("Failed to post notice");
+      alert("Failed to post notice ");
     }
   });
 }
 
-
-// 📢 Show Notices (Realtime)
 if (noticeList) {
 
   const q = query(
@@ -116,29 +110,54 @@ if (noticeList) {
     orderBy("createdAt", "desc")
   );
 
+  // onSnapshot(q, (snapshot) => {
+
+  //   noticeList.innerHTML = "";
+
+  //   snapshot.forEach((doc) => {
+  //     const data = doc.data();
+
+  //     const div = document.createElement("div");
+  //     div.classList.add("notice-card");
+
+  //     div.innerHTML = `
+  //       <h2 class="notice-title" >${data.title}</h2>
+  //       <p id="notice-para">${data.message || ""}</p>
+  //       ${data.link ? 
+  //     `<a href="${data.link}" id="notice-link">
+  //       Open Link 🔗
+  //     </a>`: ""}
+  //     <hr>
+  //     `;
+
+  //     noticeList.appendChild(div);
+  //   });
+
+  // });
   onSnapshot(q, (snapshot) => {
-
-    noticeList.innerHTML = "";
-
-    snapshot.forEach((docItem) => {
-      const data = docItem.data();
-
-      const div = document.createElement("div");
-      div.classList.add("notice-card");
-
-      div.innerHTML = `
-        <h2 class="notice-title">${data.title}</h2>
-        <p class="notice-para">${data.message || ""}</p>
-        ${data.link ? 
-          `<a href="${data.link}" target="_blank" class="notice-link">
-            Open Link 🔗
-          </a>` : ""
-        }
-        <hr>
-      `;
-
-      noticeList.appendChild(div);
-    });
-
+  noticeList.innerHTML = "";
+  snapshot.forEach((doc) => {
+    const data = doc.data();
+    const div = document.createElement("div");
+    div.classList.add("notice-card");
+    div.innerHTML = `
+      <h2 class="notice-title">${data.title}</h2>
+      <p id="notice-para">${data.message || ""}</p>
+      ${data.link ? `<a href="${data.link}" id="notice-link">Open Link 🔗</a>` : ""}
+      <hr>
+    `;
+    noticeList.appendChild(div);
   });
+}, (error) => {
+  console.error("Notice snapshot error:", error.code, error.message);
+  noticeList.innerHTML = `<p style="color:red">Couldn't load notices: ${error.code}</p>`;
+});
 }
+
+
+
+
+
+
+
+
